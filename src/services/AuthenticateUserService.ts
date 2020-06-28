@@ -5,6 +5,8 @@ import User from '../models/User';
 import { sign, verify } from 'jsonwebtoken';
 import authConfig from '../config/auth';
 
+import AppError from '../errors/AppError';
+
 interface RequestDTO {
     email: string;
     password: string;
@@ -24,7 +26,7 @@ export default class AuthenticateUserService {
         });
 
         if(!user){
-            throw new Error('Incorrect email or password combination.');
+            throw new AppError('Incorrect email or password combination.',401);
         }
 
         // password = senha não criptografada
@@ -33,7 +35,7 @@ export default class AuthenticateUserService {
         const passwordMacthed = await compare(password, user.password);
 
         if(!passwordMacthed){
-            throw new Error('Incorrect email or password combination.');
+            throw new AppError('Incorrect email or password combination.',401);
         }
 
         // 1° Parametro Payload | 2° Parametro Chave Secreta | 3° Parametro Config do Token
