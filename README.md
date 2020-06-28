@@ -31,6 +31,8 @@ Aplicação back-end das aulas *GoStack* da **Rocketseat**
     - Para criptografia da senha e token
 - multer
     - Para o envio e manipulação de imagens
+- express-async-errors
+    - Para tratativas de erros com requisições async
 
 ## Rotas
 1. [http://localhost:3333/users](http://localhost:3333/users)
