@@ -29,7 +29,7 @@
             "error",
             "ignorePackages",
             {
-                "ts": "never",
+                "ts": "never"
             }
         ]
     },
